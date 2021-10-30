@@ -16,7 +16,7 @@ const generateJwt = (id, email) => {
 class UserController {
     async registration(req, res, next) {
         
-          const { email, password } = req.body
+    const { email, password } = req.body
        if (!email || !password) {
             return next(ApiError.badRequest('некоректні дані'))
         }
@@ -28,19 +28,27 @@ class UserController {
         const user = await User.create({ email, password: hashPassword })
         const token = generateJwt(user.id, user.email)
         
-       return res.json({ user})   
+       return res.json({token})   
         
         
     }
-    async login (req, res) {
+    async login(req, res, next) {
+        const { email, password } = req.body
+        const user = await User.findOne({ where: { email } })
+        if (!user) {
+            return next(ApiError.internal('такого користувача не існує'))
+        }
+        let comparePassword = bcrypt.compareSync(password, user.password)
+        if (!comparePassword) {
+            return next(ApiError.internal('неправильний пароль'))
+        }
+        const token = generateJwt(user.id, user.email)
+        return res.json({token})
         
     }
     async check(req, res, next) {
-        const { id } = req.query
-        if (!id) {
-          return   next(ApiError.badRequest('не заданий id'))
-        }
-        res.json(id)
+        const token = generateJwt(req.user.id, User.email)
+        return res.json({token})
     }
 }
 

@@ -1,0 +1,26 @@
+.box {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: flex-start;
+  justify-content: space-around;
+  .table {
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: burlywood;
+    width: 300px;
+    border: solid black 1px;
+    div {
+      margin: 10px;
+      width: 100%;
+      border: solid black 1px;
+      border-collapse: collapse;
+    }
+  }
+  .addNew {
+    margin-top: 200px;
+    width: 200px;
+  }
+}

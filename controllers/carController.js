@@ -19,7 +19,8 @@ class CarController {
         
     }
     async getOne (req, res) {
-        
+        const car = await Car.findOne()
+        res.json(car)
     }
     
 }

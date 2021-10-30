@@ -1,0 +1,47 @@
+.box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: row-reverse;
+          flex-direction: row-reverse;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.box .table {
+  font-size: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background-color: burlywood;
+  width: 300px;
+  border: solid black 1px;
+}
+
+.box .table div {
+  margin: 10px;
+  width: 100%;
+  border: solid black 1px;
+  border-collapse: collapse;
+}
+
+.box .addNew {
+  margin-top: 200px;
+  width: 200px;
+}
+/*# sourceMappingURL=styleCarOwner.css.map */
